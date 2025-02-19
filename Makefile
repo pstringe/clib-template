@@ -20,6 +20,17 @@ MAIN_SRC      = main.c
 MAIN_STATIC   = main_static
 MAIN_DYNAMIC  = main_dynamic
 
+# Test executable
+TEST_EXEC = test_mylib
+
+# Build test executable
+test: $(STATIC_LIB) test_mylib.c
+	$(CC) $(CFLAGS) test_mylib.c $(STATIC_LIB) -o $(TEST_EXEC)
+
+# Run tests
+run-tests: test
+	./$(TEST_EXEC)
+
 .PHONY: all clean static dynamic prog-static prog-dynamic
 
 # Default target: build everything.
@@ -54,4 +65,5 @@ prog-dynamic: $(MAIN_SRC) $(DYNAMIC_LIB)
 # Clean up generated files.
 clean:
 	rm -f $(OBJS) $(STATIC_LIB) $(DYNAMIC_LIB) $(MAIN_STATIC) $(MAIN_DYNAMIC)
+	rm -f $(TEST_EXEC) *.o
 
