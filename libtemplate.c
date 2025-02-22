@@ -1,5 +1,5 @@
 // mylib.c
-#include "mylib.h"
+#include "libtemplate.h"
 
 int add(int a, int b) {
     return a + b;

@@ -1,7 +1,7 @@
 // test_mylib.c
 #include <assert.h>
 #include <stdio.h>
-#include "mylib.h"
+#include "libtemplate.h"
 
 // Test function for add()
 void test_add(void) {
